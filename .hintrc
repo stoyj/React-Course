@@ -10,6 +10,13 @@
     "not opera <= 110"
   ],
   "hints": {
-    "manifest-file-extension": "off"
+    "manifest-file-extension": "off",
+    "meta-viewport": "off",
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ]
   }
 }
