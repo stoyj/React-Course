@@ -144,8 +144,8 @@ function getBook(id) {
 }
 
 //  Destrcucturing-Деструктуриране
-
-const book = getBook(1);
+/*
+const book = getBook(3);
 book;
 
 // const title = book.title;
@@ -210,3 +210,51 @@ console.log(true || "Some string");
 console.log(false || "Some string");
 
 console.log(book.translations.spanish);
+
+const spanishTranslation = book.translations.spanish || "NOT  TRANSLATED";
+spanishTranslation;
+
+// console.log(book.reviews.librarything.reviewsCount);
+// const countWrong = book.reviews.librarything.reviewsCount || "no date";
+// countWrong;
+
+// const count = book.reviews.librarything.reviewsCount ?? "no date";
+// count;
+
+// Optional Chaining
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
+
+console.log(getTotalReviewCount(book));
+*/
+
+// The Array map Method
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
+
+const books = getBooks();
+books;
+
+const x = [1, 2, 3, 4, 5].map((el) => el * 2);
+console.log(x);
+
+const titles = books.map((books) => books.title);
+titles;
+
+const essentialDate = books.map((books) => ({
+  title: books.title,
+  author: books.author,
+  reviewsCount: getTotalReviewCount(books),
+}));
+
+essentialDate;
+
+// The Array filter Mathod
