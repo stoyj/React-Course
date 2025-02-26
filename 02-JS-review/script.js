@@ -66,7 +66,7 @@ const data = [
     publicationDate: "1965-01-01",
     author: "Frank Herbert",
     genres: ["science fiction", "novel", "adventure"],
-    hasMovieAdaptation: true,
+    hasMovieAdaptation: false,
     pages: 658,
     translations: {
       spanish: "",
@@ -231,7 +231,7 @@ function getTotalReviewCount(book) {
 
 console.log(getTotalReviewCount(book));
 */
-
+/*
 // The Array map Method
 function getTotalReviewCount(book) {
   const goodreads = book.reviews?.goodreads?.reviewsCount;
@@ -258,3 +258,55 @@ const essentialDate = books.map((books) => ({
 essentialDate;
 
 // The Array filter Mathod
+const longBooksWithMovie = books
+  .filter((books) => books.pages > 500)
+  .filter((books) => books.hasMovieAdaptation);
+longBooksWithMovie;
+
+const adventureBooks = books
+  .filter((books) => books.genres.includes("adventure"))
+  .map((books) => books.title);
+
+adventureBooks;
+
+// The Array reduce Method
+const pagesAllBooks = books.reduce((sum, books) => sum + books.pages, 0);
+pagesAllBooks;
+
+// The Array sort Method
+const arr = [3, 7, 1, 9, 6];
+const sorted = arr.slice().sort((a, b) => a - b);
+sorted;
+arr;
+
+const sortedByPages = books.slice().sort((a, b) => a.pages - b.pages);
+sortedByPages;
+
+// Working With Immutable Arrays
+
+// 1. Add book object to array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J. K. Rowling",
+};
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+// 2. Delete book object from array
+const booksAfterDelite = booksAfterAdd.filter((books) => books.id !== 3);
+booksAfterDelite;
+
+// 3. Update book object in the array
+const booksAfterUpdate = booksAfterDelite.map((books) =>
+  books.id === 1 ? { ...books, pages: 1210 } : books
+);
+booksAfterUpdate;
+*/
+
+// Asynchronous JavaScript: Promises
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
+console.log("jonas");
