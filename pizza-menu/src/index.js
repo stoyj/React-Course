@@ -23,7 +23,7 @@
 // import ReactDOM from "react-dom/client"; – използва новия API за рендиране в DOM (React 18).
 
 // import "./index.css"; – добавя стилове към приложението.
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -343,6 +343,8 @@ function Footer() {
 }
 
 function Order({ closeHour, openHour }) {
+  const [isOrderSubmitted, setIsOrderSubmitted] = useState(false);
+
   // Ако isOpen === true, рендерира компонента <Order />.
   // ➡️ Това означава, че клиентът може да поръча.
   return (
@@ -353,7 +355,13 @@ function Order({ closeHour, openHour }) {
       </p>
       {/* Ако isOpen === false, рендерира текстово съобщение:
       ➡️ Това казва на клиента в колко часа ресторантът отваря. */}
-      <button className="btn">Order</button>
+      <button
+        className="btn"
+        onClick={() => setIsOrderSubmitted(!isOrderSubmitted)}
+      >
+        Order
+      </button>
+      {isOrderSubmitted && <p>Your order is being processed.</p>}
     </div>
     // ✅ Динамично рендериране – компонентът автоматично променя съдържанието в зависимост от часа.
     //  ✅ Условно рендериране (? :) – React може да показва различни неща без if-else.
