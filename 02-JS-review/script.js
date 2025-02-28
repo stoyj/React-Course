@@ -510,13 +510,3 @@ booksAfterUpdate;
 // ✅ По-четим код – Async/Await синтаксисът е по-интуитивен и близък до синхронния код, което улеснява разбирането.
 //  ✅ Лесно управление на грешки – можете да използвате try/catch, за да обработвате грешки, което е по-ясно в сравнение с .catch() при Promises.
 //  ✅ Непрекъснато изпълнение на кода – асинхронните операции не блокират основния поток, подобрявайки производителността.
-
-async function getTodos() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
-  const data = await res.json();
-  console.log(data);
-}
-
-getTodos();
-
-console.log("jonas");
